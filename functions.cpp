@@ -1,7 +1,6 @@
+//Incluir archivo cpp de desarrollo de objetos, propiedades y métodos
 #include "constructores.cpp"
-//CREAR FUNCIONES PARA EL PROGRAMA PRINCIPAL
-
-//Crear listas enlazadas por subclase
+//--------------------------Crear listas enlazadas por subclase--------------------------
 //Nodo tv
 struct NodoTv{
     Tv dato;
@@ -47,6 +46,7 @@ struct NodoLav{
     Lavadora dato;
     NodoLav *siguiente;
 };
+//-------------------------------DECALARACIÓN DE FUNCIONES-------------------------------
 //Funciones para añadir un elemento a cada subclase
 void insertarTv(NodoTv *&,Tv);
 void insertarEq(NodoEq *&,EquipSoun);
@@ -79,9 +79,9 @@ void mostrarCocsA(NodoCoc *cocinas,int anio);
 void mostrarLavsA(NodoLav *lavadoras,int anio);
 //Funciones para menús
 void Menu();
-//CREAR MODULO PRINCIPAL
 
-//Desarrollar funciones de listas enlazadas
+//---------------------------------------DESARROLLO DE FUNCIONES---------------------------------------
+//Funciones para insertar cierto electrodoméstico dentro de su respectiva lista enlazada
 void insertarTv(NodoTv *&televisores,Tv tele){
     NodoTv *nuevo_nodo=new NodoTv();
     nuevo_nodo->dato=tele;
@@ -235,6 +235,8 @@ void insertarLav(NodoLav *&lavadoras,Lavadora lav){
     }
     nuevo_nodo->siguiente=aux1;
 }
+//Funciones para mostrar los electrodomésticos contenidos en su respectiva lista enlazada
+//Si el parámetro cond está en true: solo se mostrará aquellos electrodomésticos que se encuentran con descuento(año menor a 2018)
 void mostrarTvs(NodoTv *teles,bool cond){
     NodoTv *actual=new NodoTv();
     actual=teles;

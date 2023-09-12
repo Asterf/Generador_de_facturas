@@ -1,17 +1,18 @@
-//Proyecto de programación: Electrodomesticos
 #include<iostream>
 #include<sstream>
 #include<stdlib.h>
 #include "string"
 #include<string>
 using namespace std;
-//Crear la clase electrodomestico
+//Crear clase padre Electrodoméstio
 class ElecDom{
+    //Atributos
     private:
         string codigo;
         string marca;
         int anioFab;
         float precio;
+    //Métodos
     public:
         ElecDom();
         ~ElecDom();
@@ -28,12 +29,14 @@ class ElecDom{
         float precioElec();
         void mostrarElec();
 };
-//Crear la subclase televisor
+//Crear subclase televisor
 class Tv:public ElecDom{
+    //Atributos
     private:
         float tamanio;
         string resolution;
         string tipoPant;
+    //Métodos
     public:
         Tv();
         ~Tv();
@@ -46,9 +49,8 @@ class Tv:public ElecDom{
         string getTipoPant();
         void leerTv();
         void mostrarTv();
-        
 };
-//Crear la subclase equipo de sonido
+//Crear subclase equipo de sonido
 class EquipSoun:public ElecDom{
     private:
         int canalesAud;
@@ -68,7 +70,7 @@ class EquipSoun:public ElecDom{
         void mostrarEquipo();
         
 };
-//Crear la subclase refrigerador
+//Crear subclase refrigerador
 class Refrigerador:public ElecDom{
     private:    
         int capacidad;
@@ -85,7 +87,7 @@ class Refrigerador:public ElecDom{
         void mostrarRefrigerador();
 
 };
-//Crear la subclase microondas
+//Crear subclase microondas
 class Microondas:public ElecDom{
     private:    
         float tamanio;
@@ -102,7 +104,7 @@ class Microondas:public ElecDom{
         void mostrarMicroondas();
 
 };
-//Crear la subclase licuadora
+//Crear subclase licuadora
 class Licuadora:public ElecDom{
     private:
         string material;
@@ -119,7 +121,7 @@ class Licuadora:public ElecDom{
         void mostrarLicuadora();
 
 };
-//Crear la subclase cafetera
+//Crear subclase cafetera
 class Cafetera:public ElecDom{
     private:
         string tipo;
@@ -133,7 +135,7 @@ class Cafetera:public ElecDom{
         void mostrarCafetera();
 
 };
-//Crear la subclase Termo
+//Crear subclase Termo
 class Termo:public ElecDom{
     private:
         int nroQuemadores;
@@ -153,7 +155,7 @@ class Termo:public ElecDom{
         void mostrarTermo();
 
 };
-//Crear la subclase cocina
+//Crear subclase cocina
 class Cocina:public ElecDom{
     private:
         int nroHornillas;
@@ -170,7 +172,7 @@ class Cocina:public ElecDom{
         void mostrarCocina();
 
 };
-//Crear la subclase lavadora
+//Crear subclase lavadora
 class Lavadora:public ElecDom{
     private:    
         int capacidadLavado;

@@ -1,6 +1,8 @@
+//Incluir archivo cpp de declaración y desarrollo de funciones a utilizar en el programa principal
 #include "functions.cpp"
+//Creación del programa principal
 int main(){
-    //Crear Listas
+    //Crear Listas enlazadas para cada tipo de electrodoméstico
     NodoTv *teles=NULL;
     NodoEq *equipos=NULL;
     NodoRef *refris=NULL;
@@ -99,7 +101,8 @@ int main(){
     //Insertar lavadoras a su respectiva lista
     insertarLav(lavadoras,lv1);insertarLav(lavadoras,lv2);insertarLav(lavadoras,lv3);insertarLav(lavadoras,lv4);insertarLav(lavadoras,lv5);
     // insertarLav(lavadoras,lv6);insertarLav(lavadoras,lv7);insertarLav(lavadoras,lv8);insertarLav(lavadoras,lv9);insertarLav(lavadoras,lv10);
-    //Crear objetos auxiliares
+    
+    //Crear objetos auxiliares, estos serán usados para leer y agregar un nuevo electrodoméstico a su respectiva lista enlazada
     Tv auxTv=Tv();
     EquipSoun auxEq=EquipSoun();
     Refrigerador auxRef=Refrigerador();
@@ -110,9 +113,10 @@ int main(){
     Cocina auxCoc=Cocina();
     Lavadora auxLav=Lavadora();
 
+    //Declarar opciones a usar dentro del menú
     int op,op2,op3,op4;
     int anioBus;
-
+    //Inicar programa
     do{
         cout<<endl<<"**********************************************"<<endl;
         cout<<"1.-Ver el stock de productos"<<endl;
@@ -314,7 +318,6 @@ int main(){
                     default:
                         cout<<"La opcion ingresada no existe"<<endl;
                         break;
-
                 }
                 break;
             case 6:
@@ -343,14 +346,10 @@ int main(){
             default:
                 cout<<"La opcion ingresada no existe"<<endl;
                 break;
-
         }
         cout<<endl;
-        // system("pause");
         system("cls");
-
     }while(op!=7);
     cout<<"***********FIN DEL PROGRAMA**********"<<endl;
-    // system("pause");
     return 0;
 }

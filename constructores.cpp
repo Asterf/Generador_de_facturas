@@ -1,12 +1,14 @@
+//Incluir archivo cpp donde son declarados los objetos, sus atribuots y métodos a desarrollar
 #include "objects.cpp"
 
-//Construccion del clase electrodomestico
+//Construccion de clase electrodomestico
 ElecDom::ElecDom(){
     codigo="";
     marca="";
     anioFab=0;
     precio=0.0;
 }
+//Propiedades set and get
 ElecDom::ElecDom(string _codigo,string _marca,int _anioFab,float _precio){
     codigo=_codigo;
     marca=_marca;
@@ -37,6 +39,7 @@ void ElecDom::setPrecio(float _precio){
 float ElecDom::getPrecio(){
     return precio;
 }
+//Desarrollo de métodos
 float ElecDom::precioElec(){
     if(anioFab<2018){
         return precio*0.9;
@@ -62,7 +65,7 @@ void ElecDom::mostrarElec(){
     cout<<"Precio producto: S/"<<precioElec()<<endl;
 }
 ElecDom::~ElecDom(){}
-//Construccion de la subclase televisor
+//Construccion de subclase televisor
 Tv::Tv():ElecDom(){
     tamanio=0;
     resolution="";
@@ -73,6 +76,7 @@ Tv::Tv(string _codigo,string _marca,int _anioFab,float _precio,float _tamanio,st
     resolution=_resolution;
     tipoPant=_tipoPant;
 }
+//Propiedades set and get
 void Tv::setTamanio(float _tamanio){
     tamanio=_tamanio;
 }
@@ -91,6 +95,7 @@ void Tv::setTipoPant(string _tipoPant){
 string Tv::getTipoPant(){
     return tipoPant;
 }
+//Desarrollo de métodos
 void Tv::leerTv(){
     leerElec();
     cout<<"INGRESAR DATOS DE TELEVISOR"<<endl;
@@ -106,7 +111,7 @@ void Tv::mostrarTv(){
     cout<<"Tipo de pantalla: "<<tipoPant<<endl;
 }
 Tv::~Tv(){}
-//Construccion de la subclase Equipo de sonido
+//Construccion de subclase Equipo de sonido
 EquipSoun::EquipSoun():ElecDom(){
     canalesAud=0;
     potencia=0;
@@ -117,6 +122,7 @@ EquipSoun::EquipSoun(string _codigo,string _marca,int _anioFab,float _precio,int
     potencia=_potencia;
     puertosUsb=_puertosUsb;
 }
+//Propiedades set and get
 void EquipSoun::setCanaalesAud(int _canalesAud){
     canalesAud=_canalesAud;
 }
@@ -135,6 +141,7 @@ void EquipSoun::setPuertosUsb(int _puertosUsb){
 int EquipSoun::getPuertosUsb(){
     return puertosUsb;
 }
+//Desarrollo de métodos
 void EquipSoun::leerEquipo(){
     leerElec();
     cout<<"INGRESAR DATOS DE EQUIPO DE SONIDO"<<endl;
@@ -150,7 +157,7 @@ void EquipSoun::mostrarEquipo(){
     cout<<"Cantidad de puertos USB: "<<puertosUsb<<endl;
 }
 EquipSoun::~EquipSoun(){}
-//Constructor de la subclase refrigerador
+//Constructor de subclase refrigerador
 Refrigerador::Refrigerador():ElecDom(){
     capacidad=0;
     tipo="";
@@ -159,6 +166,7 @@ Refrigerador::Refrigerador(string _codigo,string _marca,int _anioFab,float _prec
     capacidad=_capacidad;
     tipo=_tipo;
 }
+//Propiedades set and get
 void Refrigerador::setCapacidad(int _capacidad){
     capacidad=_capacidad;
 }
@@ -171,6 +179,7 @@ void Refrigerador::setTipo(string _tipo){
 string Refrigerador::getTipo(){
     return tipo;
 }
+//Desarrollo de métodos
 void Refrigerador::leerRefrigerador(){
     leerElec();
     cout<<"INGRESAR DATOS DE REFRIGERADOR"<<endl;
@@ -184,7 +193,7 @@ void Refrigerador::mostrarRefrigerador(){
     cout<<"Tipo de refrigerador: "<<tipo<<endl;
 }
 Refrigerador::~Refrigerador(){}
-//Constructor de la subclase microondas
+//Constructor de subclase microondas
 Microondas::Microondas():ElecDom(){
     tamanio=0.0;
     capacidad=0;
@@ -193,6 +202,7 @@ Microondas::Microondas(string _codigo,string _marca,int _anioFab,float _precio,f
     tamanio=_tamanio;  
     capacidad=_capacidad;  
 }
+//Propiedades set and get
 void Microondas::setTamanio(float _tamanio){
     tamanio=_tamanio;
 }
@@ -205,6 +215,7 @@ void Microondas::setCapacidad(int _capacidad){
 int Microondas::getCapacidad(){
     return capacidad;
 }
+//Desarrollo de métodos
 void Microondas::leerMicroondas(){
     leerElec();
     cout<<"INGRESAR DATOS DE MICROONDAS"<<endl;
@@ -218,7 +229,7 @@ void Microondas::mostrarMicroondas(){
     cout<<"Capacidad de microondas: "<<capacidad<<" litros"<<endl;
 }
 Microondas::~Microondas(){}
-//Constructtor de la subclase licuadora
+//Constructtor de subclase licuadora
 Licuadora::Licuadora():ElecDom(){
     material="";
     velocidad=0;
@@ -227,6 +238,7 @@ Licuadora::Licuadora(string _codigo,string _marca,int _anioFab,float _precio,str
     material=_material;
     velocidad=_velocidad;
 }
+//Propiedades set and get
 void Licuadora::setMaterial(string _material){
     material=_material;
 }
@@ -239,6 +251,7 @@ void Licuadora::setVelocidad(int _velocidad){
 int Licuadora::getVelocidad(){
     return velocidad;
 }
+//Desarrollo de métodos
 void Licuadora::leerLicuadora(){
     leerElec();
     cout<<"INGRESAR DATOS DE LICUADORA"<<endl;
@@ -252,19 +265,21 @@ void Licuadora::mostrarLicuadora(){
     cout<<"Velocidad de licuadora: "<<velocidad<<endl;
 }
 Licuadora::~Licuadora(){}
-//Constructor de la subclase cafetera
+//Constructor de subclase cafetera
 Cafetera::Cafetera():ElecDom(){
     tipo="";
 }
 Cafetera::Cafetera(string _codigo,string _marca,int _aniofab,float _precio,string _tipo):ElecDom(_codigo,_marca,_aniofab,_precio){
     tipo=_tipo;
 }
+//Propiedades set and get
 void Cafetera::setTipo(string _tipo){
     tipo=_tipo;
 }
 string Cafetera::getTipo(){
     return tipo;
 }
+//Desarrollo de métodos
 void Cafetera::leerCafetera(){
     leerElec();
     cout<<"INGRESAR DATOS DE CAFETERA"<<endl;
@@ -276,7 +291,7 @@ void Cafetera::mostrarCafetera(){
     cout<<"Tipo de cafetera: "<<tipo<<endl;
 }
 Cafetera::~Cafetera(){}
-//Constructor de la subclase termo
+//Constructor de subclase termo
 Termo::Termo():ElecDom(){
     nroQuemadores=0;
     tamanio=0;
@@ -287,6 +302,7 @@ Termo::Termo(string _codigo,string _marca,int _anioFab,float _precio,int _nroQue
     tamanio=_tamanio;
     capacidad=_capacidad;
 }
+//Propiedades set and get
 void Termo::setNroQuemadores(int _nroQuemadores){
     nroQuemadores=_nroQuemadores;
 }
@@ -305,6 +321,7 @@ void Termo::setCapacidad(int _capacidad){
 int Termo::getCapacidad(){
     return capacidad;
 }
+//Desarrollo de métodos
 void Termo::leerTermo(){
     leerElec();
     cout<<"INGRESAR DATOS DE TERMO"<<endl;
@@ -320,7 +337,7 @@ void Termo::mostrarTermo(){
     cout<<"Litrajes del termo: "<<capacidad<<" litros"<<endl;
 }
 Termo::~Termo(){}
-//Constructor de la subclase cocina
+//Constructor la subclase cocina
 Cocina::Cocina():ElecDom(){
     nroHornillas=0;
     tamanio=0.0;
@@ -329,6 +346,7 @@ Cocina::Cocina(string _codigo,string _marca,int _anioFab,float _precio,int _nroH
     nroHornillas=_nroHornillas;
     tamanio=_tamanio;
 }
+//Propiedades set and get
 void Cocina::setNroHornillas(int _nroHornillas){
     nroHornillas=_nroHornillas;
 }
@@ -341,6 +359,7 @@ void Cocina::setTamanio(float _tamanio){
 float Cocina::getTamanio(){
     return tamanio;
 }
+//Desarrollo de métodos
 void Cocina::leerCocina(){
     leerElec();
     cout<<"INGRESAR DATOS DE COCINA"<<endl;
@@ -354,7 +373,7 @@ void Cocina::mostrarCocina(){
     cout<<"Ancho de cocina: "<<tamanio<<" cm"<<endl;
 }
 Cocina::~Cocina(){}
-//Constructor de la subclase lavadora
+//Constructor de subclase lavadora
 Lavadora::Lavadora():ElecDom(){
     capacidadLavado=0;
     capacidadSecado=0;
@@ -365,6 +384,7 @@ Lavadora::Lavadora(string _codigo,string _marca,int _anioFab,float _precio,int _
     capacidadSecado=_capacidadSecado;
     tipoEnergy=_tipoEnergy;
 }
+//Propiedades set and get
 void Lavadora::setCapacidadLavado(int _capacidadLavado){
     capacidadLavado=_capacidadLavado;
 }
@@ -383,6 +403,7 @@ void Lavadora::setTipoEnergy(string _tipoEnergy){
 string Lavadora::getTipoEnergy(){
     return tipoEnergy;
 }
+//Desarrollo de métodos
 void Lavadora::leerLavadora(){
     leerElec();
     cout<<"INGRESAR DATOS DE LAVADORA"<<endl;
