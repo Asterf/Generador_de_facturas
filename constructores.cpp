@@ -7,13 +7,15 @@ ElecDom::ElecDom(){
     marca="";
     anioFab=0;
     precio=0.0;
+    stock = 0;
 }
 //Propiedades set and get
-ElecDom::ElecDom(string _codigo,string _marca,int _anioFab,float _precio){
+ElecDom::ElecDom(string _codigo,string _marca,int _anioFab,float _precio, int _stock){
     codigo=_codigo;
     marca=_marca;
     anioFab=_anioFab;
     precio=_precio;
+    stock = _stock;
 }
 void ElecDom::setCodigo(string _codigo){
     codigo=_codigo;
@@ -39,6 +41,12 @@ void ElecDom::setPrecio(float _precio){
 float ElecDom::getPrecio(){
     return precio;
 }
+void ElecDom::setStock(int _stock){
+    stock = _stock;
+}
+int ElecDom::getStock(){
+    return stock;
+}
 //Desarrollo de métodos
 float ElecDom::precioElec(){
     if(anioFab<2018){
@@ -55,6 +63,7 @@ void ElecDom::leerElec(){
     cout<<"Ingresar marca de producto: ";cin>>marca;
     cout<<"Ingresar anio del producto: ";cin>>anioFab;
     cout<<"Ingresar precio del producto: ";cin>>precio;
+    cout<<"Ingresar el stock del producto: ";cin>>stock;
 }
 void ElecDom::mostrarElec(){
     cout<<endl;
@@ -62,7 +71,8 @@ void ElecDom::mostrarElec(){
     cout<<"Codigo producto: "<<codigo<<endl;
     cout<<"Marca producto: "<<marca<<endl;
     cout<<"Anio producto: "<<anioFab<<endl;
-    cout<<"Precio producto: S/"<<precioElec()<<endl;
+    cout<<"Precio producto: S/"<<precioElec();
+    cout<<"Stock del producto: "<<stock<<endl;
 }
 ElecDom::~ElecDom(){}
 //Construccion de subclase televisor
@@ -71,7 +81,7 @@ Tv::Tv():ElecDom(){
     resolution="";
     tipoPant="";
 }
-Tv::Tv(string _codigo,string _marca,int _anioFab,float _precio,float _tamanio,string _resolution,string _tipoPant):ElecDom(_codigo,_marca,_anioFab,_precio){
+Tv::Tv(string _codigo,string _marca,int _anioFab,float _precio, int _stock,float _tamanio,string _resolution,string _tipoPant):ElecDom(_codigo,_marca,_anioFab,_precio, _stock){
     tamanio=_tamanio;
     resolution=_resolution;
     tipoPant=_tipoPant;
@@ -102,6 +112,7 @@ void Tv::leerTv(){
     cout<<"Ingresar el tamanio de pantalla: ";cin>>tamanio;
     cout<<"Ingresar la resolucion del televisor: ";cin>>resolution;
     cout<<"Ingresar el tipo de pantalla: ";cin>>tipoPant;
+    
 }
 void Tv::mostrarTv(){
     mostrarElec();
@@ -117,7 +128,7 @@ EquipSoun::EquipSoun():ElecDom(){
     potencia=0;
     puertosUsb=0;
 }
-EquipSoun::EquipSoun(string _codigo,string _marca,int _anioFab,float _precio,int _canalesAud,int _potencia,int _puertosUsb):ElecDom(_codigo,_marca,_anioFab,_precio){
+EquipSoun::EquipSoun(string _codigo,string _marca,int _anioFab,float _precio, int _stock ,int _canalesAud,int _potencia,int _puertosUsb):ElecDom(_codigo,_marca,_anioFab,_precio, _stock){
     canalesAud=_canalesAud;
     potencia=_potencia;
     puertosUsb=_puertosUsb;
@@ -162,7 +173,7 @@ Refrigerador::Refrigerador():ElecDom(){
     capacidad=0;
     tipo="";
 }
-Refrigerador::Refrigerador(string _codigo,string _marca,int _anioFab,float _precio,int _capacidad,string _tipo):ElecDom(_codigo,_marca,_anioFab,_precio){
+Refrigerador::Refrigerador(string _codigo,string _marca,int _anioFab,float _precio, int _stock,int _capacidad,string _tipo):ElecDom(_codigo,_marca,_anioFab,_precio, _stock){
     capacidad=_capacidad;
     tipo=_tipo;
 }
@@ -198,7 +209,7 @@ Microondas::Microondas():ElecDom(){
     tamanio=0.0;
     capacidad=0;
 }
-Microondas::Microondas(string _codigo,string _marca,int _anioFab,float _precio,float _tamanio,int _capacidad):ElecDom(_codigo,_marca,_anioFab,_precio){
+Microondas::Microondas(string _codigo,string _marca,int _anioFab,float _precio, int _stock,float _tamanio,int _capacidad):ElecDom(_codigo,_marca,_anioFab,_precio, _stock){
     tamanio=_tamanio;  
     capacidad=_capacidad;  
 }
@@ -234,7 +245,7 @@ Licuadora::Licuadora():ElecDom(){
     material="";
     velocidad=0;
 } 
-Licuadora::Licuadora(string _codigo,string _marca,int _anioFab,float _precio,string _material,int _velocidad):ElecDom(_codigo,_marca,_anioFab,_precio){
+Licuadora::Licuadora(string _codigo,string _marca,int _anioFab,float _precio, int _stock,string _material,int _velocidad):ElecDom(_codigo,_marca,_anioFab,_precio, _stock){
     material=_material;
     velocidad=_velocidad;
 }
@@ -269,7 +280,7 @@ Licuadora::~Licuadora(){}
 Cafetera::Cafetera():ElecDom(){
     tipo="";
 }
-Cafetera::Cafetera(string _codigo,string _marca,int _aniofab,float _precio,string _tipo):ElecDom(_codigo,_marca,_aniofab,_precio){
+Cafetera::Cafetera(string _codigo,string _marca,int _aniofab,float _precio, int _stock,string _tipo):ElecDom(_codigo,_marca,_aniofab,_precio, _stock){
     tipo=_tipo;
 }
 //Propiedades set and get
@@ -297,7 +308,7 @@ Termo::Termo():ElecDom(){
     tamanio=0;
     capacidad=0;
 }
-Termo::Termo(string _codigo,string _marca,int _anioFab,float _precio,int _nroQuemadores,float _tamanio,int _capacidad):ElecDom(_codigo,_marca,_anioFab,_precio){
+Termo::Termo(string _codigo,string _marca,int _anioFab,float _precio, int _stock,int _nroQuemadores,float _tamanio,int _capacidad):ElecDom(_codigo,_marca,_anioFab,_precio, _stock){
     nroQuemadores=_nroQuemadores;
     tamanio=_tamanio;
     capacidad=_capacidad;
@@ -342,7 +353,7 @@ Cocina::Cocina():ElecDom(){
     nroHornillas=0;
     tamanio=0.0;
 }
-Cocina::Cocina(string _codigo,string _marca,int _anioFab,float _precio,int _nroHornillas,float _tamanio):ElecDom(_codigo,_marca,_anioFab,_precio){
+Cocina::Cocina(string _codigo,string _marca,int _anioFab,float _precio, int _stock,int _nroHornillas,float _tamanio):ElecDom(_codigo,_marca,_anioFab,_precio,_stock){
     nroHornillas=_nroHornillas;
     tamanio=_tamanio;
 }
@@ -379,7 +390,7 @@ Lavadora::Lavadora():ElecDom(){
     capacidadSecado=0;
     tipoEnergy="";
 }
-Lavadora::Lavadora(string _codigo,string _marca,int _anioFab,float _precio,int _capacidadLavado,int _capacidadSecado,string _tipoEnergy):ElecDom(_codigo,_marca,_anioFab,_precio){
+Lavadora::Lavadora(string _codigo,string _marca,int _anioFab,float _precio, int _stock,int _capacidadLavado,int _capacidadSecado,string _tipoEnergy):ElecDom(_codigo,_marca,_anioFab,_precio,_stock){
     capacidadLavado=_capacidadLavado;
     capacidadSecado=_capacidadSecado;
     tipoEnergy=_tipoEnergy;

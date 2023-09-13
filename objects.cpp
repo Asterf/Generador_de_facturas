@@ -2,7 +2,7 @@
 #include<sstream>
 #include<stdlib.h>
 #include "string"
-#include<string>
+#include <string>
 using namespace std;
 //Crear clase padre Electrodoméstio
 class ElecDom{
@@ -12,11 +12,12 @@ class ElecDom{
         string marca;
         int anioFab;
         float precio;
+        int stock;
     //Métodos
     public:
         ElecDom();
         ~ElecDom();
-        ElecDom(string _codigo,string _marca,int _anioFab,float _precio);
+        ElecDom(string _codigo,string _marca,int _anioFab,float _precio, int _stock);
         void setCodigo(string _codigo);
         string getCodigo();
         void setMarca(string _marca);
@@ -25,6 +26,8 @@ class ElecDom{
         int getAnioFab();
         void setPrecio(float _precio);
         float getPrecio();
+        void setStock(int _stock);
+        int getStock();
         void leerElec();
         float precioElec();
         void mostrarElec();
@@ -40,7 +43,7 @@ class Tv:public ElecDom{
     public:
         Tv();
         ~Tv();
-        Tv(string _codigo,string _marca,int _anioFab,float _precio,float _tamanio,string _resolution,string _tipo);
+        Tv(string _codigo,string _marca,int _anioFab,float _precio, int _stock,float _tamanio,string _resolution,string _tipo);
         void setTamanio(float _tamanio);
         float getTamanio();
         void setResolution(string _resolution);
@@ -59,7 +62,7 @@ class EquipSoun:public ElecDom{
     public:
         EquipSoun();
         ~EquipSoun();
-        EquipSoun(string _codigo,string _marca,int _anioFab,float _precio,int _canalesAud,int _potencia,int _puertosUsb);
+        EquipSoun(string _codigo,string _marca,int _anioFab,float _precio, int _stock,int _canalesAud,int _potencia,int _puertosUsb);
         void setCanaalesAud(int _canalesAud);
         int getCanalesAud();
         void setPotencia(int _potencia);
@@ -67,8 +70,7 @@ class EquipSoun:public ElecDom{
         void setPuertosUsb(int _puertosUsb);
         int getPuertosUsb();
         void leerEquipo();
-        void mostrarEquipo();
-        
+        void mostrarEquipo();    
 };
 //Crear subclase refrigerador
 class Refrigerador:public ElecDom{
@@ -78,14 +80,13 @@ class Refrigerador:public ElecDom{
     public:
         Refrigerador();
         ~Refrigerador();
-        Refrigerador(string _codigo,string _marca,int _anioFab,float _precio,int _capacidad,string _tipo);
+        Refrigerador(string _codigo,string _marca,int _anioFab,float _precio, int _stock,int _capacidad,string _tipo);
         void setCapacidad(int _capacidad);
         int getCapacidad();
         void setTipo(string _tipo);
         string getTipo();
         void leerRefrigerador();
         void mostrarRefrigerador();
-
 };
 //Crear subclase microondas
 class Microondas:public ElecDom{
@@ -95,7 +96,7 @@ class Microondas:public ElecDom{
     public:
         Microondas();
         ~Microondas();
-        Microondas(string _codigo,string _marca,int _anioFab,float _precio,float _tamanio,int _capacidad);
+        Microondas(string _codigo,string _marca,int _anioFab,float _precio, int _stock,float _tamanio,int _capacidad);
         void setTamanio(float _tamanio);
         float getTamanio();
         void setCapacidad(int _capacidad);
@@ -112,14 +113,13 @@ class Licuadora:public ElecDom{
     public:
         Licuadora();
         ~Licuadora();
-        Licuadora(string _codigo,string _marca,int _anioFab,float _precio,string _material,int _velocidad);
+        Licuadora(string _codigo,string _marca,int _anioFab,float _precio, int _stock,string _material,int _velocidad);
         void setMaterial(string _material);
         string getMaterial();
         void setVelocidad(int _velocidad);
         int getVelocidad();
         void leerLicuadora();
         void mostrarLicuadora();
-
 };
 //Crear subclase cafetera
 class Cafetera:public ElecDom{
@@ -128,12 +128,11 @@ class Cafetera:public ElecDom{
     public:
         Cafetera();
         ~Cafetera();
-        Cafetera(string _codigo,string _marca,int _anioFab,float _precio,string _tipo);
+        Cafetera(string _codigo,string _marca,int _anioFab,float _precio, int _stock,string _tipo);
         void setTipo(string _tipo);
         string getTipo();
         void leerCafetera();
         void mostrarCafetera();
-
 };
 //Crear subclase Termo
 class Termo:public ElecDom{
@@ -144,7 +143,7 @@ class Termo:public ElecDom{
     public:
         Termo();
         ~Termo();
-        Termo(string _codigo,string _marca,int _anioFab,float _precio,int _nroQuemadores,float _tamanio,int _capacidad);
+        Termo(string _codigo,string _marca,int _anioFab,float _precio, int _stock,int _nroQuemadores,float _tamanio,int _capacidad);
         void setNroQuemadores(int _nroQuemadores);
         int getNroQuemadores();
         void setTamanio(float _tamanio);
@@ -153,7 +152,6 @@ class Termo:public ElecDom{
         int getCapacidad();
         void leerTermo();
         void mostrarTermo();
-
 };
 //Crear subclase cocina
 class Cocina:public ElecDom{
@@ -163,14 +161,13 @@ class Cocina:public ElecDom{
     public:
         Cocina();
         ~Cocina();
-        Cocina(string _codigo,string _marca,int _anioFab,float _precio,int _nroHornillas,float _tamanio);
+        Cocina(string _codigo,string _marca,int _anioFab,float _precio, int _stock,int _nroHornillas,float _tamanio);
         void setNroHornillas(int _nroHornillas);
         int getNroHornillas();
         void setTamanio(float _tamanio);
         float getTamanio();
         void leerCocina();
         void mostrarCocina();
-
 };
 //Crear subclase lavadora
 class Lavadora:public ElecDom{
@@ -181,7 +178,7 @@ class Lavadora:public ElecDom{
     public:
         Lavadora();
         ~Lavadora();
-        Lavadora(string _codigo,string _marca,int _anioFab,float _precio,int _capacidadLavado,int _capacidadSecado,string _tipoEnergy);
+        Lavadora(string _codigo,string _marca,int _anioFab,float _precio, int _stock,int _capacidadLavado,int _capacidadSecado,string _tipoEnergy);
         void setCapacidadLavado(int _capacidadLavado);
         int getCapacidadLavado();
         void setCapacidadSecado(int _capacidadSecado);
